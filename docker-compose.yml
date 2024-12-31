@@ -1,16 +1,16 @@
 version: '3'
 services:
   sqlite_db:
-    image: sqlite:latest
-    container_name: sqlite_db
+    image: postgres:13
+    container_name: postgres_db
     environment:
-      SQLITE_DB_NAME: mydb
+      SQLITE_DB_NAME: postgres
       SQLITE_USER: postgres
       SQLITE_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
-      - sqlite_data:/var/lib/sqlite/data
+      - postgres_data:/var/lib/postgressql/data
 
 volumes:
-  sqlite_data:
+  postgres_data:
