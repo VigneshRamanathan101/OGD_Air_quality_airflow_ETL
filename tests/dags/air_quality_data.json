@@ -1,0 +1,226 @@
+{
+    "index_name":"3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
+    "title":"Real time Air Quality Index from various locations",
+    "desc":"Real time Air Quality Index from various locations",
+    "org_type":"Central",
+    "org":[
+       "Ministry of Environment, Forest and Climate Change",
+       "Central Pollution Control Board"
+    ],
+    "sector":[
+       "Environment and Forest",
+       "Industrial Air Pollution",
+       "Residential Air Pollution",
+       "Vehicular Air Pollution"
+    ],
+    "source":"data.gov.in",
+    "catalog_uuid":"a3e7afc6-b799-4ede-b143-8e074b27e062",
+    "visualizable":"1",
+    "active":"1",
+    "created":1470249000,
+    "updated":1735617602,
+    "created_date":"2016-04-08T00:00:00Z",
+    "updated_date":"2024-12-31T04:00:02Z",
+    "external_ws":0,
+    "external_ws_url":"",
+    "target_bucket":{
+       "index":"air_quality",
+       "type":"3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69"
+    },
+    "field":[
+       {
+          "name":"country",
+          "id":"country",
+          "type":"keyword"
+       },
+       {
+          "name":"state",
+          "id":"state",
+          "type":"keyword"
+       },
+       {
+          "name":"city",
+          "id":"city",
+          "type":"keyword"
+       },
+       {
+          "name":"station",
+          "id":"station",
+          "type":"keyword"
+       },
+       {
+          "name":"last_update",
+          "id":"last_update",
+          "type":"keyword"
+       },
+       {
+          "name":"latitude",
+          "id":"latitude",
+          "type":"keyword"
+       },
+       {
+          "name":"longitude",
+          "id":"longitude",
+          "type":"keyword"
+       },
+       {
+          "name":"pollutant_id",
+          "id":"pollutant_id",
+          "type":"keyword"
+       },
+       {
+          "name":"pollutant_min",
+          "id":"min_value",
+          "type":"keyword"
+       },
+       {
+          "name":"pollutant_max",
+          "id":"max_value",
+          "type":"keyword"
+       },
+       {
+          "name":"pollutant_avg",
+          "id":"avg_value",
+          "type":"keyword"
+       }
+    ],
+    "message":"Resource lists",
+    "version":"2.2.0",
+    "status":"ok",
+    "total":486,
+    "count":10,
+    "limit":"10",
+    "offset":"0",
+    "records":[
+       {
+     "country": "India",
+     "state": "Bihar",
+     "city": "Manguraha",
+     "station": "Forest Rest House, Manguraha - BSPCB",
+     "last_update": "31-12-2024 09:00:00",
+     "latitude": "27.308328",
+     "longitude": "84.531742",
+     "pollutant_id": "OZONE",
+     "min_value": "9",
+     "max_value": "10",
+     "avg_value": "10"
+ },
+       {
+          "country":"India",
+          "state":"Assam",
+          "city":"Guwahati",
+          "station":"LGBI Airport, Guwahati - PCBA",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"26.10887",
+          "longitude":"91.589544",
+          "pollutant_id":"OZONE",
+          "min_value":"18",
+          "max_value":"20",
+          "avg_value":"19"
+       },
+       {
+          "country":"India",
+          "state":"Assam",
+          "city":"Nagaon",
+          "station":"Christianpatty, Nagaon - PCBA",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"26.349082",
+          "longitude":"92.68449",
+          "pollutant_id":"OZONE",
+          "min_value":"5",
+          "max_value":"35",
+          "avg_value":"8"
+       },
+       {
+          "country":"India",
+          "state":"Bihar",
+          "city":"Muzaffarpur",
+          "station":"Muzaffarpur Collectorate, Muzaffarpur - BSPCB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"26.1209",
+          "longitude":"85.3647",
+          "pollutant_id":"OZONE",
+          "min_value":"11",
+          "max_value":"16",
+          "avg_value":"13"
+       },
+       {
+          "country":"India",
+          "state":"Bihar",
+          "city":"Patna",
+          "station":"DRM Office Danapur, Patna - BSPCB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"25.586562",
+          "longitude":"85.043586",
+          "pollutant_id":"OZONE",
+          "min_value":"2",
+          "max_value":"20",
+          "avg_value":"6"
+       },
+       {
+          "country":"India",
+          "state":"Andhra_Pradesh",
+          "city":"Anantapur",
+          "station":"Gulzarpet, Anantapur - APPCB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"14.675886",
+          "longitude":"77.593027",
+          "pollutant_id":"OZONE",
+          "min_value":"1",
+          "max_value":"41",
+          "avg_value":"13"
+       },
+       {
+          "country":"India",
+          "state":"Chhattisgarh",
+          "city":"Bhilai",
+          "station":"Hathkhoj, Bhilai - CECB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"21.224231",
+          "longitude":"81.408350",
+          "pollutant_id":"OZONE",
+          "min_value":"8",
+          "max_value":"39",
+          "avg_value":"15"
+       },
+       {
+          "country":"India",
+          "state":"Chhattisgarh",
+          "city":"Chhal",
+          "station":"Nawapara SECL Colony, Chhal - CECB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"22.118125",
+          "longitude":"83.140608",
+          "pollutant_id":"OZONE",
+          "min_value":"18",
+          "max_value":"69",
+          "avg_value":"20"
+       },
+       {
+          "country":"India",
+          "state":"Arunachal_Pradesh",
+          "city":"Naharlagun",
+          "station":"Naharlagun, Naharlagun - APSPCB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"27.103358",
+          "longitude":"93.679645",
+          "pollutant_id":"OZONE",
+          "min_value":"NA",
+          "max_value":"NA",
+          "avg_value":"NA"
+       },
+       {
+          "country":"India",
+          "state":"Chhattisgarh",
+          "city":"Kunjemura",
+          "station":"OP Jindal School, Kunjemura - CECB",
+          "last_update":"31-12-2024 09:00:00",
+          "latitude":"22.126650",
+          "longitude":"83.483212",
+          "pollutant_id":"OZONE",
+          "min_value":"4",
+          "max_value":"5",
+          "avg_value":"5"
+       }
+    ]
+ }
