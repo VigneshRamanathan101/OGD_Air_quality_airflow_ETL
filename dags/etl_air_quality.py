@@ -10,7 +10,7 @@ import json
 
 API_KEY = Variable.get('OGD_API_KEY')  # in airflow variable
 SQLLITE_CONN_ID = 'postgres_default'   # in airflow connections 
-API_CONN_ID = 'OGD_API'                # in airflow connections 
+API_CONN_ID = 'OGD_API'                # in airflow connections   
 
 default_args = {
     'owner' : 'vignesh',
@@ -41,11 +41,26 @@ with DAG(dag_id= 'air_quality_etl_pipeline',
     def transform_air_quality (air_quality):
         current_air_quality = air_quality["records"]
         print(current_air_quality)
-        transform_data = {}
-        for data in current_air_quality:
-            pass
-            #need to work on transform logic
-        return transform_data
+        transform_data = []
+        for i, data in enumerate(current_air_quality):
+            # Convert JSON data to Python dictionary
+            transformed_data = {
+                "country": data["country"],
+                "state": data["state"],
+                "city": data["city"],
+                "station": data["station"],
+                "last_update": data["last_update"],
+                "latitude": float(data["latitude"]),
+                "longitude": float(data["longitude"]),
+                "pollutant_id": data["pollutant_id"],
+                "min_value": int(data["min_value"]),
+                "max_value": int(data["max_value"]),
+                "avg_value": int(data["avg_value"])
+            }
+
+        # Add transformed data to dictionary
+        transform_data.append(transformed_data)
+        return transform_data 
     
     @task()
     def load_air_quality(transform_date):
@@ -60,22 +75,33 @@ with DAG(dag_id= 'air_quality_etl_pipeline',
             state VARCHAR(255),
             city VARCHAR(255),
             station TEXT,
-            last_update DATE,
+            last_update TIMESTAMP,
             latitude DECIMAL(10, 8),
             longitude DECIMAL(11, 8),
             pollutant_id VARCHAR(255),
-            min_value VARCHAR(10),
-            max_value VARCHAR(10),
-            avg_value VARCHAR(10)
+            min_value SMALLINT,
+            max_value SMALLINT,
+            avg_value SMALLINT
         );
         """)
 
-        #need to work on insert logic according to transform data
+        # Insert transformed data into database
         cursor.execute("""
-        INSERT INTO air_quality (result)
-                       Values (%s)
-        """,(transform_date['result']
-             ))
+            INSERT INTO air_quality (
+                country,
+                state,
+                city,
+                station,
+                last_update,
+                latitude,
+                longitude,
+                pollutant_id,
+                min_value,
+                max_value,
+                avg_value
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, transform_date)
         
         conn.commit()
         cursor.close()
