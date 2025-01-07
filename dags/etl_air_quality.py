@@ -57,22 +57,22 @@ with DAG(dag_id= 'air_quality_etl_pipeline',
                 "last_update": data["last_update"],
                 "latitude": float(data["latitude"]),
                 "longitude": float(data["longitude"]),
-                "pollutant_id": data["pollutant_id"]
+                "pollutant_id": data["pollutant_id"],
             }
             try:
                 transformed_data["min_value"]= int(data.get("min_value"))
             except ValueError:
-                transformed_data["min_value"] = data.get("min_value")
+                transformed_data["min_value"] = -1
 
             try:
                 transformed_data["max_value"]=int(data.get("max_value"))
             except ValueError:
-                transformed_data["max_value"] = data.get("max_value")
+                transformed_data["max_value"] = -1
 
             try:
                 transformed_data["avg_value"]= int(data.get("avg_value"))
             except ValueError:
-                transformed_data["avg_value"] = data.get("avg_value")
+                transformed_data["avg_value"] = -1
 
             print(transformed_data)
         # Add transformed data to dictionary
