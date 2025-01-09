@@ -10,5 +10,5 @@ webserver_config.py
 airflow.cfg
 airflow.db
 .Morningstar
-requirements_1.txt
 packages.txt
+logs
