@@ -11,7 +11,7 @@ import datetime
 API_KEY = Variable.get('OGD_API_KEY')  # in airflow variable
 SQLLITE_CONN_ID = 'postgres_default'   # in airflow connections 
 API_CONN_ID = 'OGD_API'                # in airflow connections   
-date_format = '%m-%d-%Y %H:%M:%S'
+date_format = '%d-%m-%Y %H:%M:%S'
 
 
 default_args = {
@@ -23,7 +23,7 @@ limit = 20
 ##DAG
 with DAG(dag_id= 'air_quality_etl_pipeline',
          default_args= default_args,
-         schedule_interval= '@daily',
+         schedule_interval='0 22 * * *',  # Run at 10:00 PM every day
          catchup= False) as dags :
     
     @task()
@@ -120,6 +120,7 @@ with DAG(dag_id= 'air_quality_etl_pipeline',
         
 
         for i, data in enumerate(transform_date):
+            print(data)
             query = f"""
                 INSERT INTO air_quality (
                     country, 
